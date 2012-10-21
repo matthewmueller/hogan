@@ -1,0 +1,26 @@
+<html>
+<head>
+  <title>Hogan Component</title>
+  <link rel="stylesheet" href="../build/build.css">
+</head>
+<body>
+  <h2>Hogan Component</h2>
+  <script src="../build/build.js" type="text/javascript"></script>
+  <script type="text/javascript">
+    var hogan = require('hogan'),
+        obj = { name : 'matt', age : 23 }
+        str = 'hi my name is {{name}}, I am {{age}} years old.';
+
+    // Compile the function
+    var tpl = hogan.compile(str);
+    var out = tpl(obj); // => hi my name is matt, I am 23 years old.'
+
+    document.write(out + '<br/>');
+
+    // Or.. compile and render immediately
+    out = hogan(str, obj);
+
+    document.write(out);
+  </script>
+</body>
+</html>
